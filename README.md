@@ -12,12 +12,12 @@ $ cd rdin && cabal install
 ## Usage
 
 Generate a text file containing one line per item you wish to import. 
-That line should be of the form `<artist> <album>'.
+That line should be of the form `artist album`.
 
 Then:
 
 ~~~
-$ rdin some-file.txt
+$ rdin that-file.txt
 ~~~
 
 `rdin` will execute an Album search via the Rdio API for each 
@@ -46,12 +46,12 @@ one playlist then print and format that playlist:
 ~~~
 $ mpc clear
 $ mpc listall | mpc add
-$ mpc --format '%artist% %album%' lsplaylist | unique > collection.txt
+$ mpc --format '%artist% %album%' lsplaylist | uniq > collection.txt
 ~~~
 
 If you don't want to edit the collection file before passing to `rdin` 
 you can also pass it directly via process substitution:
 
 ~~~
-$ rdin <(mpc --format '%artist% %album%' lsplaylist | unique)
+$ rdin <(mpc --format '%artist% %album%' lsplaylist | uniq)
 ~~~
